@@ -1,0 +1,436 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "id": "p1",
+      "title": "Process Map",
+      "shapes": [
+        {
+          "id": "lanes",
+          "type": "swimLanes",
+          "boundingBox": {
+            "x": 0,
+            "y": 0,
+            "w": 3200,
+            "h": 1100
+          },
+          "vertical": false,
+          "assistedLayout": false,
+          "titleBar": {
+            "height": 50,
+            "verticalText": false
+          },
+          "lanes": [
+            {
+              "title": "Entry",
+              "width": 200,
+              "headerFill": "#FED7AA",
+              "laneFill": "#FFF7ED"
+            },
+            {
+              "title": "Decide",
+              "width": 240,
+              "headerFill": "#BFDBFE",
+              "laneFill": "#EFF6FF"
+            },
+            {
+              "title": "Route / Match / Enrich",
+              "width": 280,
+              "headerFill": "#C7D2FE",
+              "laneFill": "#EEF2FF"
+            },
+            {
+              "title": "Notify",
+              "width": 200,
+              "headerFill": "#FDE68A",
+              "laneFill": "#FEFCE8"
+            },
+            {
+              "title": "Write",
+              "width": 180,
+              "headerFill": "#FBCFE8",
+              "laneFill": "#FDF2F8"
+            }
+          ]
+        },
+        {
+          "id": "ex2_in",
+          "type": "terminator",
+          "boundingBox": {
+            "x": 30,
+            "y": 100,
+            "w": 200,
+            "h": 80
+          },
+          "text": "IN: New record",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#FDE68A"
+            },
+            "stroke": {
+              "color": "#B45309",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex2_dec1",
+          "type": "decision",
+          "boundingBox": {
+            "x": 240,
+            "y": 290,
+            "w": 280,
+            "h": 140
+          },
+          "text": "High priority?",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#FEF3C7"
+            },
+            "stroke": {
+              "color": "#CA8A04",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex2_dec2",
+          "type": "decision",
+          "boundingBox": {
+            "x": 540,
+            "y": 290,
+            "w": 280,
+            "h": 140
+          },
+          "text": "Has owner?",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#FEF3C7"
+            },
+            "stroke": {
+              "color": "#CA8A04",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex2_route",
+          "type": "process",
+          "boundingBox": {
+            "x": 540,
+            "y": 540,
+            "w": 240,
+            "h": 90
+          },
+          "text": "Round-Robin Assign",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#DBEAFE"
+            },
+            "stroke": {
+              "color": "#1D4ED8",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex2_match",
+          "type": "process",
+          "boundingBox": {
+            "x": 240,
+            "y": 540,
+            "w": 240,
+            "h": 90
+          },
+          "text": "Match existing",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#DBEAFE"
+            },
+            "stroke": {
+              "color": "#1D4ED8",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex2_slack",
+          "type": "process",
+          "boundingBox": {
+            "x": 540,
+            "y": 820,
+            "w": 260,
+            "h": 90
+          },
+          "text": "Send Slack alert",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#E0E7FF"
+            },
+            "stroke": {
+              "color": "#4338CA",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex2_write",
+          "type": "process",
+          "boundingBox": {
+            "x": 540,
+            "y": 990,
+            "w": 220,
+            "h": 80
+          },
+          "text": "Update record",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#FAE8FF"
+            },
+            "stroke": {
+              "color": "#A21CAF",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex2_out",
+          "type": "terminator",
+          "boundingBox": {
+            "x": 860,
+            "y": 990,
+            "w": 220,
+            "h": 90
+          },
+          "text": "OUT: Routed",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#BBF7D0"
+            },
+            "stroke": {
+              "color": "#15803D",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        }
+      ],
+      "lines": [
+        {
+          "id": "l1",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex2_in"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex2_dec1"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          }
+        },
+        {
+          "id": "l2",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex2_dec1"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex2_match"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          },
+          "text": [
+            {
+              "text": "No",
+              "position": 0.5,
+              "side": "middle"
+            }
+          ]
+        },
+        {
+          "id": "l3",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex2_dec1"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex2_dec2"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          },
+          "text": [
+            {
+              "text": "Yes",
+              "position": 0.5,
+              "side": "middle"
+            }
+          ]
+        },
+        {
+          "id": "l4",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex2_dec2"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex2_route"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          },
+          "text": [
+            {
+              "text": "No",
+              "position": 0.5,
+              "side": "middle"
+            }
+          ]
+        },
+        {
+          "id": "l5",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex2_dec2"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex2_slack"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          },
+          "text": [
+            {
+              "text": "Yes",
+              "position": 0.5,
+              "side": "middle"
+            }
+          ]
+        },
+        {
+          "id": "l6",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex2_match"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex2_write"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          }
+        },
+        {
+          "id": "l7",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex2_route"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex2_slack"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          }
+        },
+        {
+          "id": "l8",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex2_slack"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex2_write"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          }
+        },
+        {
+          "id": "l9",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex2_write"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex2_out"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          }
+        }
+      ]
+    }
+  ]
+}

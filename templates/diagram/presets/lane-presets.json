@@ -1,0 +1,264 @@
+{
+  "$schema_note": "Pre-validated swimlane configurations. Each preset specifies lane widths that sum exactly to the stated boundingBox stacking-axis dimension (h for horizontal lanes, w for vertical lanes). Pick the preset closest to your map's needs and adjust widths as needed; run helpers/lane_math.py::validate to confirm any modifications still sum correctly.",
+  "$layout_rule": "For horizontal swimlanes (vertical: false), lanes stack TOP-TO-BOTTOM and each lane's 'width' is its vertical height. For vertical swimlanes (vertical: true), lanes stack LEFT-TO-RIGHT and 'width' is horizontal width. The titleBar height is INCLUDED in the lane width sum.",
+  "$shape_size_minimums": {
+    "decision": "280w x 140h. Smaller diamonds force Lucid to rotate text vertically.",
+    "process": "200-320w x 80-110h.",
+    "terminator": "160-240w x 80-100h.",
+    "warning_callout": "Match neighbor heights, typically 200-240w."
+  },
+  "presets": {
+    "horizontal_2_lane_system_handoff": {
+      "purpose": "Two-system handoff diagram (e.g., one platform receives webhook, writes to second platform).",
+      "boundingBox": {
+        "w": 3200,
+        "h": 1130
+      },
+      "vertical": false,
+      "titleBar_height": 50,
+      "lanes": [
+        {
+          "title": "System A",
+          "width": 565,
+          "y_interior_top": 50,
+          "y_interior_bottom": 565
+        },
+        {
+          "title": "System B",
+          "width": 565,
+          "y_interior_top": 565,
+          "y_interior_bottom": 1130
+        }
+      ],
+      "lane_width_sum": 1130,
+      "recommended_node_count": "8-20",
+      "notes": "Wider lanes leave room for 2-3 rows of nodes per lane. Reduce 'width' values if your nodes are short."
+    },
+    "horizontal_5_lane_system_end_to_end": {
+      "purpose": "End-to-end flow across 5 systems (e.g., prospect-facing surface + assignment system + 3 backend platforms).",
+      "boundingBox": {
+        "w": 4800,
+        "h": 2050
+      },
+      "vertical": false,
+      "titleBar_height": 50,
+      "lanes": [
+        {
+          "title": "Lane 1",
+          "width": 400,
+          "y_interior_top": 50,
+          "y_interior_bottom": 400
+        },
+        {
+          "title": "Lane 2",
+          "width": 200,
+          "y_interior_top": 400,
+          "y_interior_bottom": 600
+        },
+        {
+          "title": "Lane 3",
+          "width": 500,
+          "y_interior_top": 600,
+          "y_interior_bottom": 1100
+        },
+        {
+          "title": "Lane 4",
+          "width": 500,
+          "y_interior_top": 1100,
+          "y_interior_bottom": 1600
+        },
+        {
+          "title": "Lane 5",
+          "width": 450,
+          "y_interior_top": 1600,
+          "y_interior_bottom": 2050
+        }
+      ],
+      "lane_width_sum": 2050,
+      "recommended_node_count": "20-40",
+      "notes": "Use the 200-tall lane for a thin orchestration system (e.g., feature flag, queue) that only needs 1-2 nodes. Widen if more."
+    },
+    "horizontal_7_lane_functional_routing": {
+      "purpose": "Routing-heavy workflow inside a single system, decomposed by function (Entry, Match, Enrich, Decide, Route, Cadence, Write).",
+      "boundingBox": {
+        "w": 5000,
+        "h": 2370
+      },
+      "vertical": false,
+      "titleBar_height": 50,
+      "lanes": [
+        {
+          "title": "Entry",
+          "width": 200,
+          "y_interior_top": 50,
+          "y_interior_bottom": 200
+        },
+        {
+          "title": "Match",
+          "width": 330,
+          "y_interior_top": 200,
+          "y_interior_bottom": 530
+        },
+        {
+          "title": "Enrich",
+          "width": 140,
+          "y_interior_top": 530,
+          "y_interior_bottom": 670
+        },
+        {
+          "title": "Decide",
+          "width": 620,
+          "y_interior_top": 670,
+          "y_interior_bottom": 1290
+        },
+        {
+          "title": "Route / Assign",
+          "width": 270,
+          "y_interior_top": 1290,
+          "y_interior_bottom": 1560
+        },
+        {
+          "title": "Cadence / Notify",
+          "width": 370,
+          "y_interior_top": 1560,
+          "y_interior_bottom": 1930
+        },
+        {
+          "title": "Write",
+          "width": 440,
+          "y_interior_top": 1930,
+          "y_interior_bottom": 2370
+        }
+      ],
+      "lane_width_sum": 2370,
+      "recommended_node_count": "30-50",
+      "notes": "The Decide lane is intentionally tall because routing maps tend to have many sequential decisions. Use horizontal canvas width (5000) for the decision row, not lane height."
+    },
+    "horizontal_5_lane_functional_compact": {
+      "purpose": "Routing workflow with fewer functional stages (Entry, Decide, Route, Notify, Write). Use when you don't need separate Match and Enrich lanes.",
+      "boundingBox": {
+        "w": 3200,
+        "h": 1100
+      },
+      "vertical": false,
+      "titleBar_height": 50,
+      "lanes": [
+        {
+          "title": "Entry",
+          "width": 200,
+          "y_interior_top": 50,
+          "y_interior_bottom": 200
+        },
+        {
+          "title": "Decide",
+          "width": 240,
+          "y_interior_top": 200,
+          "y_interior_bottom": 440
+        },
+        {
+          "title": "Route / Match / Enrich",
+          "width": 280,
+          "y_interior_top": 440,
+          "y_interior_bottom": 720
+        },
+        {
+          "title": "Notify",
+          "width": 200,
+          "y_interior_top": 720,
+          "y_interior_bottom": 920
+        },
+        {
+          "title": "Write",
+          "width": 180,
+          "y_interior_top": 920,
+          "y_interior_bottom": 1100
+        }
+      ],
+      "lane_width_sum": 1100,
+      "recommended_node_count": "10-20"
+    },
+    "horizontal_6_lane_functional_contact_routing": {
+      "purpose": "Contact-triggered routing with Entry, Match, Decide, Route/Assign, Notify, Write.",
+      "boundingBox": {
+        "w": 3800,
+        "h": 1400
+      },
+      "vertical": false,
+      "titleBar_height": 50,
+      "lanes": [
+        {
+          "title": "Entry",
+          "width": 200,
+          "y_interior_top": 50,
+          "y_interior_bottom": 200
+        },
+        {
+          "title": "Match",
+          "width": 200,
+          "y_interior_top": 200,
+          "y_interior_bottom": 400
+        },
+        {
+          "title": "Decide",
+          "width": 380,
+          "y_interior_top": 400,
+          "y_interior_bottom": 780
+        },
+        {
+          "title": "Route / Assign",
+          "width": 200,
+          "y_interior_top": 780,
+          "y_interior_bottom": 980
+        },
+        {
+          "title": "Notify",
+          "width": 220,
+          "y_interior_top": 980,
+          "y_interior_bottom": 1200
+        },
+        {
+          "title": "Write",
+          "width": 200,
+          "y_interior_top": 1200,
+          "y_interior_bottom": 1400
+        }
+      ],
+      "lane_width_sum": 1400,
+      "recommended_node_count": "15-25"
+    },
+    "vertical_3_lane_dfd": {
+      "purpose": "Data flow diagram with vertical lanes (Source, Transform, Destination). Use vertical: true when time flows top-to-bottom.",
+      "boundingBox": {
+        "w": 1800,
+        "h": 2000
+      },
+      "vertical": true,
+      "titleBar_height": 50,
+      "lanes": [
+        {
+          "title": "Source",
+          "width": 600,
+          "x_interior_left": 50,
+          "x_interior_right": 600
+        },
+        {
+          "title": "Transform",
+          "width": 600,
+          "x_interior_left": 600,
+          "x_interior_right": 1200
+        },
+        {
+          "title": "Destination",
+          "width": 600,
+          "x_interior_left": 1200,
+          "x_interior_right": 1800
+        }
+      ],
+      "lane_width_sum": 1800,
+      "recommended_node_count": "10-20",
+      "notes": "For vertical: true, the titleBar runs DOWN the leading edge. Each lane's 'width' is its horizontal width. Time/sequence flows TOP-TO-BOTTOM on the Y axis."
+    }
+  },
+  "$how_to_modify_a_preset": "If a preset doesn't fit your needs, copy it and adjust. Two rules: (1) sum of lane 'width' values MUST equal boundingBox.h (horizontal lanes) or boundingBox.w (vertical lanes), INCLUDING the titleBar. (2) Recompute lane y_interior values sequentially: first lane interior starts at y=titleBar_height; each subsequent lane starts where the previous ended. Use helpers/lane_math.py to validate.",
+  "$assistedLayout_default": "For maps with 30+ nodes, set assistedLayout: false on the swimLanes container so your explicit coordinates are honored. For maps with <30 nodes, assistedLayout: true is usually fine."
+}

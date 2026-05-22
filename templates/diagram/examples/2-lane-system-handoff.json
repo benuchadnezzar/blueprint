@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "id": "p1",
+      "title": "Process Map",
+      "shapes": [
+        {
+          "id": "lanes",
+          "type": "swimLanes",
+          "boundingBox": {
+            "x": 0,
+            "y": 0,
+            "w": 3200,
+            "h": 1130
+          },
+          "vertical": false,
+          "assistedLayout": false,
+          "titleBar": {
+            "height": 50,
+            "verticalText": false
+          },
+          "lanes": [
+            {
+              "title": "Source System",
+              "width": 565,
+              "headerFill": "#FED7AA",
+              "laneFill": "#FFF7ED"
+            },
+            {
+              "title": "Destination CRM",
+              "width": 565,
+              "headerFill": "#BFDBFE",
+              "laneFill": "#EFF6FF"
+            }
+          ]
+        },
+        {
+          "id": "ex1_in",
+          "type": "terminator",
+          "boundingBox": {
+            "x": 80,
+            "y": 120,
+            "w": 200,
+            "h": 80
+          },
+          "text": "IN: Customer signup",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#FDE68A"
+            },
+            "stroke": {
+              "color": "#B45309",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex1_validate",
+          "type": "process",
+          "boundingBox": {
+            "x": 360,
+            "y": 120,
+            "w": 240,
+            "h": 90
+          },
+          "text": "Validate fields",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#DBEAFE"
+            },
+            "stroke": {
+              "color": "#1D4ED8",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex1_event",
+          "type": "process",
+          "boundingBox": {
+            "x": 680,
+            "y": 120,
+            "w": 260,
+            "h": 90
+          },
+          "text": "Fire signup_complete event",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#E0E7FF"
+            },
+            "stroke": {
+              "color": "#4338CA",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex1_write",
+          "type": "process",
+          "boundingBox": {
+            "x": 680,
+            "y": 720,
+            "w": 220,
+            "h": 80
+          },
+          "text": "Upsert Contact record",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#FAE8FF"
+            },
+            "stroke": {
+              "color": "#A21CAF",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex1_out",
+          "type": "terminator",
+          "boundingBox": {
+            "x": 1020,
+            "y": 720,
+            "w": 220,
+            "h": 90
+          },
+          "text": "OUT: Contact created",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#BBF7D0"
+            },
+            "stroke": {
+              "color": "#15803D",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        }
+      ],
+      "lines": [
+        {
+          "id": "l1",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex1_in"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex1_validate"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          }
+        },
+        {
+          "id": "l2",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex1_validate"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex1_event"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          }
+        },
+        {
+          "id": "l3",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex1_event"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex1_write"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "dashed"
+          }
+        },
+        {
+          "id": "l4",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex1_write"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex1_out"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          }
+        }
+      ]
+    }
+  ]
+}

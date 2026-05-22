@@ -1,0 +1,26 @@
+{
+  "$schema_note": "Empty Lucid Standard Import payload WITHOUT the color/shape key. Use this for sub-process maps where the legend is shown on the master/overview map. Use empty-with-legend.json for standalone or master maps.",
+
+  "version": 1,
+  "pages": [
+    {
+      "id": "p1",
+      "title": "Process Map",
+      "shapes": [
+        {
+          "id": "lanes",
+          "type": "swimLanes",
+          "boundingBox": {"x": 0, "y": 0, "w": 3200, "h": 1130},
+          "vertical": false,
+          "assistedLayout": false,
+          "titleBar": {"height": 50, "verticalText": false},
+          "lanes": [
+            {"title": "REPLACE_ME_LANE_1", "width": 565, "headerFill": "#C7D2FE", "laneFill": "#EEF2FF"},
+            {"title": "REPLACE_ME_LANE_2", "width": 565, "headerFill": "#F5D0FE", "laneFill": "#FDF4FF"}
+          ]
+        }
+      ],
+      "lines": []
+    }
+  ]
+}

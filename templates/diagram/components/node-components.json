@@ -1,0 +1,199 @@
+{
+  "$schema_note": "Reusable node component templates. Each component is a partial Lucid shape definition with type, recommended dimensions, and style baked in. To use a component, copy its 'template' field, fill in id/text/boundingBox.x/y, and add to the shapes array of your diagram.",
+
+  "$how_to_use": "Pick the component that matches the node's semantic role (terminator, process, decision, etc.). Copy the template. Set a unique 'id', the displayed 'text', and the boundingBox 'x' and 'y'. The 'w' and 'h' are pre-filled with recommended dimensions but can be overridden.",
+
+  "$dimension_rules": {
+    "decision": "MINIMUM 280w x 140h. Narrower diamonds force text to rotate vertically.",
+    "process": "Typically 200-320w x 80-110h. Increase width for longer text.",
+    "terminator": "Typically 160-240w x 80-100h.",
+    "warning_callout": "Match neighbor heights, typically 200-240w x 100-240h depending on text length."
+  },
+
+  "components": {
+
+    "terminator_start_end": {
+      "purpose": "Workflow start, end, IN handoff, OUT handoff. Yellow oval.",
+      "template": {
+        "id": "REPLACE_ME",
+        "type": "terminator",
+        "boundingBox": {"x": 0, "y": 0, "w": 200, "h": 80},
+        "text": "REPLACE_ME",
+        "style": {
+          "fill": {"type": "color", "color": "#FDE68A"},
+          "stroke": {"color": "#B45309", "width": 2, "style": "solid"}
+        }
+      }
+    },
+
+    "terminator_success_end": {
+      "purpose": "Successful workflow completion. Green oval. Distinguishes positive end-states from generic IN/OUT.",
+      "template": {
+        "id": "REPLACE_ME",
+        "type": "terminator",
+        "boundingBox": {"x": 0, "y": 0, "w": 220, "h": 90},
+        "text": "REPLACE_ME",
+        "style": {
+          "fill": {"type": "color", "color": "#BBF7D0"},
+          "stroke": {"color": "#15803D", "width": 2, "style": "solid"}
+        }
+      }
+    },
+
+    "process": {
+      "purpose": "Standard process step or matching action. Blue rectangle.",
+      "template": {
+        "id": "REPLACE_ME",
+        "type": "process",
+        "boundingBox": {"x": 0, "y": 0, "w": 240, "h": 90},
+        "text": "REPLACE_ME",
+        "style": {
+          "fill": {"type": "color", "color": "#DBEAFE"},
+          "stroke": {"color": "#1D4ED8", "width": 2, "style": "solid"}
+        }
+      }
+    },
+
+    "system_action": {
+      "purpose": "System or API call, webhook, event fire, AI action. Indigo rectangle.",
+      "template": {
+        "id": "REPLACE_ME",
+        "type": "process",
+        "boundingBox": {"x": 0, "y": 0, "w": 260, "h": 90},
+        "text": "REPLACE_ME",
+        "style": {
+          "fill": {"type": "color", "color": "#E0E7FF"},
+          "stroke": {"color": "#4338CA", "width": 2, "style": "solid"}
+        }
+      }
+    },
+
+    "decision": {
+      "purpose": "Branching decision. Yellow diamond. MUST be 280w x 140h minimum.",
+      "template": {
+        "id": "REPLACE_ME",
+        "type": "decision",
+        "boundingBox": {"x": 0, "y": 0, "w": 280, "h": 140},
+        "text": "REPLACE_ME?",
+        "style": {
+          "fill": {"type": "color", "color": "#FEF3C7"},
+          "stroke": {"color": "#CA8A04", "width": 2, "style": "solid"}
+        }
+      }
+    },
+
+    "database_write": {
+      "purpose": "Database or CRM record create / update / delete. Magenta rectangle.",
+      "template": {
+        "id": "REPLACE_ME",
+        "type": "process",
+        "boundingBox": {"x": 0, "y": 0, "w": 220, "h": 80},
+        "text": "REPLACE_ME",
+        "style": {
+          "fill": {"type": "color", "color": "#FAE8FF"},
+          "stroke": {"color": "#A21CAF", "width": 2, "style": "solid"}
+        }
+      }
+    },
+
+    "out_of_scope": {
+      "purpose": "Excluded population or out-of-scope branch shown for context. Red rectangle.",
+      "template": {
+        "id": "REPLACE_ME",
+        "type": "process",
+        "boundingBox": {"x": 0, "y": 0, "w": 240, "h": 90},
+        "text": "REPLACE_ME OUT OF SCOPE",
+        "style": {
+          "fill": {"type": "color", "color": "#FEE2E2"},
+          "stroke": {"color": "#B91C1C", "width": 2, "style": "solid"}
+        }
+      }
+    },
+
+    "warning_callout": {
+      "purpose": "Bug, gap, or risk callout. Red rectangle. Text begins with WARNING: or BUG:.",
+      "template": {
+        "id": "REPLACE_ME",
+        "type": "process",
+        "boundingBox": {"x": 0, "y": 0, "w": 240, "h": 100},
+        "text": "WARNING: REPLACE_ME with one-sentence description",
+        "style": {
+          "fill": {"type": "color", "color": "#FEE2E2"},
+          "stroke": {"color": "#B91C1C", "width": 2, "style": "solid"}
+        }
+      }
+    },
+
+    "sub_process_link": {
+      "purpose": "Link to a separate sub-process map. Purple rectangle. Width 3 stroke.",
+      "template": {
+        "id": "REPLACE_ME",
+        "type": "process",
+        "boundingBox": {"x": 0, "y": 0, "w": 320, "h": 100},
+        "text": "SEE MAP X: REPLACE_ME",
+        "style": {
+          "fill": {"type": "color", "color": "#EDE9FE"},
+          "stroke": {"color": "#6D28D9", "width": 3, "style": "solid"}
+        }
+      }
+    }
+  },
+
+  "connector_templates": {
+
+    "primary_flow": {
+      "purpose": "Standard process flow connector.",
+      "template": {
+        "id": "REPLACE_ME",
+        "lineType": "elbow",
+        "endpoint1": {"type": "shapeEndpoint", "style": "none", "shapeId": "REPLACE_ME_SOURCE"},
+        "endpoint2": {"type": "shapeEndpoint", "style": "arrow", "shapeId": "REPLACE_ME_TARGET"},
+        "stroke": {"color": "#374151", "width": 2, "style": "solid"}
+      },
+      "with_label_template": {
+        "id": "REPLACE_ME",
+        "lineType": "elbow",
+        "endpoint1": {"type": "shapeEndpoint", "style": "none", "shapeId": "REPLACE_ME_SOURCE"},
+        "endpoint2": {"type": "shapeEndpoint", "style": "arrow", "shapeId": "REPLACE_ME_TARGET"},
+        "stroke": {"color": "#374151", "width": 2, "style": "solid"},
+        "text": [{"text": "REPLACE_ME_LABEL", "position": 0.5, "side": "middle"}]
+      }
+    },
+
+    "cross_system_handoff": {
+      "purpose": "Emphasize a handoff between systems. Dashed.",
+      "template": {
+        "id": "REPLACE_ME",
+        "lineType": "elbow",
+        "endpoint1": {"type": "shapeEndpoint", "style": "none", "shapeId": "REPLACE_ME_SOURCE"},
+        "endpoint2": {"type": "shapeEndpoint", "style": "arrow", "shapeId": "REPLACE_ME_TARGET"},
+        "stroke": {"color": "#374151", "width": 2, "style": "dashed"}
+      }
+    },
+
+    "bug_risk_link": {
+      "purpose": "Link a warning_callout to its affected node. Red dashed, no arrowhead.",
+      "template": {
+        "id": "REPLACE_ME",
+        "lineType": "straight",
+        "endpoint1": {"type": "shapeEndpoint", "style": "none", "shapeId": "REPLACE_ME_NODE"},
+        "endpoint2": {"type": "shapeEndpoint", "style": "none", "shapeId": "REPLACE_ME_WARNING"},
+        "stroke": {"color": "#B91C1C", "width": 1, "style": "dashed"}
+      }
+    },
+
+    "auto_convert_implicit": {
+      "purpose": "Implicit chain or auto-convert relationship. Lighter to indicate the user does not trigger this.",
+      "template": {
+        "id": "REPLACE_ME",
+        "lineType": "elbow",
+        "endpoint1": {"type": "shapeEndpoint", "style": "none", "shapeId": "REPLACE_ME_SOURCE"},
+        "endpoint2": {"type": "shapeEndpoint", "style": "arrow", "shapeId": "REPLACE_ME_TARGET"},
+        "stroke": {"color": "#9CA3AF", "width": 2, "style": "dashed"},
+        "text": [{"text": "auto", "position": 0.5, "side": "middle"}]
+      }
+    }
+  },
+
+  "$endpoint_positioning_note": "Connectors prefer auto-attached endpoints (NO 'position' property on either endpoint). If you DO need to specify position, you MUST specify it on BOTH endpoints (the Lucid spec rejects partial-position lines). Use position: {x: 0, y: 0.5} for left edge, {x: 1, y: 0.5} for right, {x: 0.5, y: 0} for top, {x: 0.5, y: 1} for bottom. Avoid the default {0.5, 0.5} which causes lines to overlap shape text."
+}

@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "id": "p1",
+      "title": "Process Map",
+      "shapes": [
+        {
+          "id": "lanes",
+          "type": "swimLanes",
+          "boundingBox": {
+            "x": 0,
+            "y": 0,
+            "w": 4800,
+            "h": 2050
+          },
+          "vertical": false,
+          "assistedLayout": false,
+          "titleBar": {
+            "height": 50,
+            "verticalText": false
+          },
+          "lanes": [
+            {
+              "title": "Prospect",
+              "width": 400,
+              "headerFill": "#FED7AA",
+              "laneFill": "#FFF7ED"
+            },
+            {
+              "title": "Feature Flag",
+              "width": 200,
+              "headerFill": "#BFDBFE",
+              "laneFill": "#EFF6FF"
+            },
+            {
+              "title": "Event Platform",
+              "width": 500,
+              "headerFill": "#C7D2FE",
+              "laneFill": "#EEF2FF"
+            },
+            {
+              "title": "Workflow Engine",
+              "width": 500,
+              "headerFill": "#FDE68A",
+              "laneFill": "#FEFCE8"
+            },
+            {
+              "title": "CRM",
+              "width": 450,
+              "headerFill": "#FBCFE8",
+              "laneFill": "#FDF2F8"
+            }
+          ]
+        },
+        {
+          "id": "ex3_visit",
+          "type": "terminator",
+          "boundingBox": {
+            "x": 80,
+            "y": 150,
+            "w": 200,
+            "h": 80
+          },
+          "text": "Visits site",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#FDE68A"
+            },
+            "stroke": {
+              "color": "#B45309",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex3_form",
+          "type": "process",
+          "boundingBox": {
+            "x": 360,
+            "y": 150,
+            "w": 240,
+            "h": 90
+          },
+          "text": "Submits form",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#DBEAFE"
+            },
+            "stroke": {
+              "color": "#1D4ED8",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex3_flag",
+          "type": "process",
+          "boundingBox": {
+            "x": 640,
+            "y": 500,
+            "w": 260,
+            "h": 90
+          },
+          "text": "Assign variant",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#E0E7FF"
+            },
+            "stroke": {
+              "color": "#4338CA",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex3_event",
+          "type": "process",
+          "boundingBox": {
+            "x": 960,
+            "y": 800,
+            "w": 260,
+            "h": 90
+          },
+          "text": "Fire form_submit",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#E0E7FF"
+            },
+            "stroke": {
+              "color": "#4338CA",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex3_workflow",
+          "type": "process",
+          "boundingBox": {
+            "x": 1280,
+            "y": 1300,
+            "w": 260,
+            "h": 90
+          },
+          "text": "Process and route",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#E0E7FF"
+            },
+            "stroke": {
+              "color": "#4338CA",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex3_crm",
+          "type": "process",
+          "boundingBox": {
+            "x": 1600,
+            "y": 1750,
+            "w": 220,
+            "h": 80
+          },
+          "text": "Create Lead",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#FAE8FF"
+            },
+            "stroke": {
+              "color": "#A21CAF",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "id": "ex3_end",
+          "type": "terminator",
+          "boundingBox": {
+            "x": 1900,
+            "y": 1750,
+            "w": 220,
+            "h": 90
+          },
+          "text": "END: Lead created",
+          "style": {
+            "fill": {
+              "type": "color",
+              "color": "#BBF7D0"
+            },
+            "stroke": {
+              "color": "#15803D",
+              "width": 2,
+              "style": "solid"
+            }
+          }
+        }
+      ],
+      "lines": [
+        {
+          "id": "l1",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex3_visit"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex3_form"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          }
+        },
+        {
+          "id": "l2",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex3_form"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex3_flag"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "dashed"
+          }
+        },
+        {
+          "id": "l3",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex3_flag"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex3_event"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "dashed"
+          }
+        },
+        {
+          "id": "l4",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex3_event"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex3_workflow"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "dashed"
+          }
+        },
+        {
+          "id": "l5",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex3_workflow"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex3_crm"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "dashed"
+          }
+        },
+        {
+          "id": "l6",
+          "lineType": "elbow",
+          "endpoint1": {
+            "type": "shapeEndpoint",
+            "style": "none",
+            "shapeId": "ex3_crm"
+          },
+          "endpoint2": {
+            "type": "shapeEndpoint",
+            "style": "arrow",
+            "shapeId": "ex3_end"
+          },
+          "stroke": {
+            "color": "#374151",
+            "width": 2,
+            "style": "solid"
+          }
+        }
+      ]
+    }
+  ]
+}

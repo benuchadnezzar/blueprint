@@ -1,0 +1,113 @@
+{
+  "$schema_note": "Standardized color palette for Lucid process maps. Reference these tokens by name in your node and lane definitions. If you need to change the palette later, change it once here.",
+
+  "nodes": {
+    "terminator_start_end": {
+      "fill": "#FDE68A",
+      "stroke": "#B45309",
+      "stroke_width": 2,
+      "purpose": "Workflow start, end, IN handoff, OUT handoff. Yellow oval."
+    },
+    "terminator_success_end": {
+      "fill": "#BBF7D0",
+      "stroke": "#15803D",
+      "stroke_width": 2,
+      "purpose": "Successful workflow completion. Green oval. Use to distinguish positive end-states from generic IN/OUT terminators."
+    },
+    "process": {
+      "fill": "#DBEAFE",
+      "stroke": "#1D4ED8",
+      "stroke_width": 2,
+      "purpose": "Standard process step or matching action. Blue rectangle."
+    },
+    "system_action": {
+      "fill": "#E0E7FF",
+      "stroke": "#4338CA",
+      "stroke_width": 2,
+      "purpose": "System or API call, webhook, event fire, AI action. Indigo rectangle."
+    },
+    "decision": {
+      "fill": "#FEF3C7",
+      "stroke": "#CA8A04",
+      "stroke_width": 2,
+      "purpose": "Branching decision. Yellow diamond. Must be 280w \u00d7 140h minimum."
+    },
+    "database_write": {
+      "fill": "#FAE8FF",
+      "stroke": "#A21CAF",
+      "stroke_width": 2,
+      "purpose": "Database or CRM record create / update / delete. Magenta rectangle."
+    },
+    "out_of_scope": {
+      "fill": "#FEE2E2",
+      "stroke": "#B91C1C",
+      "stroke_width": 2,
+      "purpose": "Excluded population or out-of-scope branch shown for context. Red rectangle."
+    },
+    "warning_callout": {
+      "fill": "#FEE2E2",
+      "stroke": "#B91C1C",
+      "stroke_width": 2,
+      "purpose": "Bug, gap, or risk callout. Red rectangle. Text begins with WARNING: or BUG: followed by one-sentence description."
+    },
+    "sub_process_link": {
+      "fill": "#EDE9FE",
+      "stroke": "#6D28D9",
+      "stroke_width": 3,
+      "purpose": "Link to a separate sub-process map. Purple rectangle. Width 3 stroke emphasizes the cross-document nature."
+    }
+  },
+
+  "lane_headers_functional": {
+    "$comment": "Functional lanes describe stages of work, not systems. Use for routing-heavy or process-flow maps.",
+    "entry": {"header": "#FED7AA", "lane_fill": "#FFF7ED"},
+    "match": {"header": "#BFDBFE", "lane_fill": "#EFF6FF"},
+    "enrich": {"header": "#C7D2FE", "lane_fill": "#EEF2FF"},
+    "decide": {"header": "#FDE68A", "lane_fill": "#FEFCE8"},
+    "route_assign": {"header": "#FBCFE8", "lane_fill": "#FDF2F8"},
+    "cadence_notify": {"header": "#A7F3D0", "lane_fill": "#ECFDF5"},
+    "write": {"header": "#F5D0FE", "lane_fill": "#FDF4FF"}
+  },
+
+  "lane_headers_neutral_system": {
+    "$comment": "Neutral lane color tokens for system lanes. Use these as starting points and remap to specific systems in your project palette (e.g., colors-justworks.json).",
+    "neutral_orange": {"header": "#FED7AA", "lane_fill": "#FFF7ED"},
+    "neutral_red": {"header": "#FECACA", "lane_fill": "#FEF2F2"},
+    "neutral_indigo": {"header": "#C7D2FE", "lane_fill": "#EEF2FF"},
+    "neutral_blue": {"header": "#BFDBFE", "lane_fill": "#EFF6FF"},
+    "neutral_magenta": {"header": "#F5D0FE", "lane_fill": "#FDF4FF"},
+    "neutral_green": {"header": "#A7F3D0", "lane_fill": "#ECFDF5"},
+    "neutral_pink": {"header": "#FBCFE8", "lane_fill": "#FDF2F8"},
+    "neutral_yellow": {"header": "#FDE68A", "lane_fill": "#FEFCE8"}
+  },
+
+  "lane_header_rule": "ALWAYS use light fills with dark default text. Saturated dark fills with white text fail readability. The lane fill should be a paler shade of the same hue family.",
+
+  "connectors": {
+    "primary_flow": {
+      "color": "#374151",
+      "width": 2,
+      "style": "solid",
+      "purpose": "Standard process flow."
+    },
+    "cross_system_handoff": {
+      "color": "#374151",
+      "width": 2,
+      "style": "dashed",
+      "purpose": "Emphasize a handoff between systems or workflows. Use sparingly."
+    },
+    "bug_risk_link": {
+      "color": "#B91C1C",
+      "width": 1,
+      "style": "dashed",
+      "endpoint_style": "none",
+      "purpose": "Link a warning_callout to the node it describes. No arrowhead."
+    },
+    "auto_convert_implicit": {
+      "color": "#9CA3AF",
+      "width": 2,
+      "style": "dashed",
+      "purpose": "Implicit chain or auto-convert relationship (e.g., Lead auto-converts to Contact + Account + Opportunity). Lighter to indicate the user does not trigger this."
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "$schema_note": "Empty Lucid Standard Import payload with the standardized color/shape key pre-built in the upper-left negative-x territory (outside the swimlane container). Replace the swimLanes lane configuration and add your nodes/lines.",
+
+  "$usage": "1. Replace the swimLanes 'boundingBox', 'vertical', 'titleBar', and 'lanes' to match your chosen preset (see presets/lane-presets.json). 2. Add your shapes to the page.shapes array AFTER the existing legend shapes. 3. Add your lines to page.lines. 4. Run helpers/validators.py::validate_payload before sending.",
+
+  "version": 1,
+  "pages": [
+    {
+      "id": "p1",
+      "title": "Process Map",
+      "shapes": [
+        {
+          "id": "lanes",
+          "type": "swimLanes",
+          "boundingBox": {"x": 0, "y": 0, "w": 3200, "h": 1130},
+          "vertical": false,
+          "assistedLayout": false,
+          "titleBar": {"height": 50, "verticalText": false},
+          "lanes": [
+            {"title": "REPLACE_ME_LANE_1", "width": 565, "headerFill": "#C7D2FE", "laneFill": "#EEF2FF"},
+            {"title": "REPLACE_ME_LANE_2", "width": 565, "headerFill": "#F5D0FE", "laneFill": "#FDF4FF"}
+          ]
+        },
+
+        {"id": "key_title", "type": "text", "boundingBox": {"x": -800, "y": 0, "w": 600, "h": 40}, "text": "COLOR & SHAPE KEY"},
+
+        {"id": "key_term", "type": "terminator", "boundingBox": {"x": -800, "y": 60, "w": 200, "h": 60}, "text": "Start / End / IN / OUT", "style": {"fill": {"type": "color", "color": "#FDE68A"}, "stroke": {"color": "#B45309", "width": 2, "style": "solid"}}},
+        {"id": "key_term_label", "type": "text", "boundingBox": {"x": -580, "y": 70, "w": 380, "h": 40}, "text": "Yellow oval = workflow start, end, or cross-map handoff"},
+
+        {"id": "key_proc", "type": "process", "boundingBox": {"x": -800, "y": 140, "w": 200, "h": 60}, "text": "Process step", "style": {"fill": {"type": "color", "color": "#DBEAFE"}, "stroke": {"color": "#1D4ED8", "width": 2, "style": "solid"}}},
+        {"id": "key_proc_label", "type": "text", "boundingBox": {"x": -580, "y": 150, "w": 380, "h": 40}, "text": "Blue rectangle = process or matching action"},
+
+        {"id": "key_dec", "type": "decision", "boundingBox": {"x": -800, "y": 220, "w": 280, "h": 140}, "text": "Decision?", "style": {"fill": {"type": "color", "color": "#FEF3C7"}, "stroke": {"color": "#CA8A04", "width": 2, "style": "solid"}}},
+        {"id": "key_dec_label", "type": "text", "boundingBox": {"x": -500, "y": 270, "w": 380, "h": 40}, "text": "Yellow diamond = branching decision"},
+
+        {"id": "key_sys", "type": "process", "boundingBox": {"x": -800, "y": 380, "w": 200, "h": 60}, "text": "System / API call", "style": {"fill": {"type": "color", "color": "#E0E7FF"}, "stroke": {"color": "#4338CA", "width": 2, "style": "solid"}}},
+        {"id": "key_sys_label", "type": "text", "boundingBox": {"x": -580, "y": 390, "w": 380, "h": 40}, "text": "Indigo rectangle = system action (event, webhook, AI)"},
+
+        {"id": "key_db", "type": "process", "boundingBox": {"x": -800, "y": 460, "w": 200, "h": 60}, "text": "Database write", "style": {"fill": {"type": "color", "color": "#FAE8FF"}, "stroke": {"color": "#A21CAF", "width": 2, "style": "solid"}}},
+        {"id": "key_db_label", "type": "text", "boundingBox": {"x": -580, "y": 470, "w": 380, "h": 40}, "text": "Magenta rectangle = CRM/database create or update"},
+
+        {"id": "key_oos", "type": "process", "boundingBox": {"x": -800, "y": 540, "w": 200, "h": 60}, "text": "Out of scope", "style": {"fill": {"type": "color", "color": "#FEE2E2"}, "stroke": {"color": "#B91C1C", "width": 2, "style": "solid"}}},
+        {"id": "key_oos_label", "type": "text", "boundingBox": {"x": -580, "y": 550, "w": 380, "h": 40}, "text": "Red rectangle = excluded population, bug, or warning callout"},
+
+        {"id": "key_sub", "type": "process", "boundingBox": {"x": -800, "y": 620, "w": 200, "h": 60}, "text": "Sub-process link", "style": {"fill": {"type": "color", "color": "#EDE9FE"}, "stroke": {"color": "#6D28D9", "width": 3, "style": "solid"}}},
+        {"id": "key_sub_label", "type": "text", "boundingBox": {"x": -580, "y": 630, "w": 380, "h": 40}, "text": "Purple rectangle = links to a separate map"}
+      ],
+      "lines": []
+    }
+  ]
+}

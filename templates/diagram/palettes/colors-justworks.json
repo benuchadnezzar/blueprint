@@ -1,0 +1,59 @@
+{
+  "$schema_note": "Justworks-specific system lane colors. Extends palettes/colors.json. Use these when building maps for Justworks' GTM stack (Customer.io, Salesforce, Default, LaunchDarkly, prospect-facing surfaces).",
+
+  "lane_headers_system": {
+    "customer_io": {
+      "header": "#C7D2FE",
+      "lane_fill": "#EEF2FF",
+      "purpose": "Customer.io lane. Indigo family to align with the CIO logo."
+    },
+    "default": {
+      "header": "#BFDBFE",
+      "lane_fill": "#EFF6FF",
+      "purpose": "Default (workflow automation platform) lane. Blue family."
+    },
+    "salesforce": {
+      "header": "#F5D0FE",
+      "lane_fill": "#FDF4FF",
+      "purpose": "Salesforce lane. Magenta family."
+    },
+    "launchdarkly": {
+      "header": "#FECACA",
+      "lane_fill": "#FEF2F2",
+      "purpose": "LaunchDarkly feature flag lane. Red family."
+    },
+    "prospect_browser": {
+      "header": "#FED7AA",
+      "lane_fill": "#FFF7ED",
+      "purpose": "Prospect-facing browser/form lane (the user's experience). Orange family."
+    },
+    "salesloft": {
+      "header": "#A7F3D0",
+      "lane_fill": "#ECFDF5",
+      "purpose": "Salesloft (sales engagement) lane. Green family."
+    },
+    "apollo": {
+      "header": "#FBCFE8",
+      "lane_fill": "#FDF2F8",
+      "purpose": "Apollo (enrichment) lane. Pink family."
+    },
+    "slack": {
+      "header": "#FDE68A",
+      "lane_fill": "#FEFCE8",
+      "purpose": "Slack notification lane. Yellow family."
+    }
+  },
+
+  "naming_conventions": {
+    "experiment_fields": "Standardize on experiment_name and experiment_variant across all A/B test maps. If a downstream system uses experiment_arm, note the naming inconsistency in the Gap & Risk Review.",
+    "lead_record_types": "Sales Beach RT, Prospective Partner RT, Event Lead (Event is a separate SFDC object, not a Lead RT).",
+    "common_fields_to_render": [
+      "First_Conversion__c",
+      "OwnerId",
+      "mql_stage",
+      "ae_owner_id",
+      "experiment_name",
+      "experiment_variant"
+    ]
+  }
+}
