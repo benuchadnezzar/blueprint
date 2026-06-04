@@ -44,101 +44,29 @@ To get OAuth credentials: [Google Cloud Console](https://console.cloud.google.co
 
 ---
 
-## Restoring your personal configuration
-
-Before this repo was committed to GitHub, org-specific and personally identifying content was replaced with placeholders. This section documents every placeholder and the original value so you can restore your configuration.
-
-### `.mcp.json`
-
-| Placeholder | Your value |
-|---|---|
-| `YOUR_GOOGLE_OAUTH_CLIENT_ID` | `<your-client-id>.apps.googleusercontent.com` |
-| `YOUR_GOOGLE_OAUTH_CLIENT_SECRET` | `<your-client-secret>` |
-| `you@example.com` | `<your-email@example.com>` |
+## Skill configuration
 
 ### `skills/scrub-a-dub/SKILL.md`
 
-Eight occurrences of `user_google_email="<your-email>"` → replace with your actual email.
+Search for `user_google_email="<your-email>"` (eight occurrences) and replace `<your-email>` with your Google Workspace email.
 
 ### `skills/navigate/skill.md`
 
-This skill had the most changes. The original configuration was for the **Systems Architecture team at Justworks** with a **June 1 fiscal year start**.
+This skill needs to know your team and fiscal calendar. Fill in the following:
 
-#### Frontmatter description
+**Frontmatter description** — replace `[your-team-name]` with your team's name.
 
-| Placeholder | Your value |
+**Constants block** (near the top of the file):
+
+| Placeholder | What to put there |
 |---|---|
-| `[your-team-name]` in the frontmatter `description` field | `Systems Architecture team (Marketing Operations and Technology at Justworks)` |
+| `STRATEGY_FOLDER_ID = "<your-strategy-drive-folder-id>"` | Google Drive folder ID for your team's strategy docs |
+| `TEAM_MEMBERS = ["Team Member A", "Team Member B", ...]` | List of your team members' names |
+| `FISCAL_YEAR_START_MONTH = 1` | Month number your fiscal year starts (e.g. `6` for June) |
 
-#### Constants block (near top of skill)
+**Quarter date ranges** — the defaults assume a January fiscal year start (Q1: Jan–Mar, Q2: Apr–Jun, etc.). If your fiscal year starts in a different month, update all four quarter definitions to match.
 
-| Placeholder | Your value |
-|---|---|
-| `STRATEGY_FOLDER_ID = "<your-strategy-drive-folder-id>"` | `"12TUt9I7E1wD9PGYItgGiffLWPGZ8A9Ut"` |
-| `TEAM_MEMBERS = ["Team Member A", "Team Member B", ...]` | `["Ben Kulakofsky", "Danny Keane", "Igor Arefev", "Natalie Quiles", "Nikita Tyagi", "Danielle Weiss"]` |
-| `FISCAL_YEAR_START_MONTH = 1` | `6` (June) |
-
-#### Quarter date ranges
-
-Change the four quarter definitions back to June-start:
-
-| Generic | Justworks |
-|---|---|
-| Q1: Jan–Mar (`YYYY-01-01` to `YYYY-03-31`) | Q1: Jun–Aug (`YYYY-06-01` to `YYYY-08-31`) |
-| Q2: Apr–Jun (`YYYY-04-01` to `YYYY-06-30`) | Q2: Sep–Nov (`YYYY-09-01` to `YYYY-11-30`) |
-| Q3: Jul–Sep (`YYYY-07-01` to `YYYY-09-30`) | Q3: Dec–Feb (`YYYY-12-01` to `YYYY-02-28`) |
-| Q4: Oct–Dec (`YYYY-10-01` to `YYYY-12-31`) | Q4: Mar–May (`YYYY-03-01` to `YYYY-05-31`) |
-
-#### FY orientation logic
-
-| Generic | Justworks |
-|---|---|
-| "If today is within 1 month of the FY end → assume planning upcoming FY" | "If today is **May 1 or later** → assume planning upcoming FY. Note: 'You're 19 days from the end of [FY-1] — I'll plan [FY].'" |
-| `$FY_START "[FY_START_DATE]"` | `"2026-06-01"` |
-| `$FY_END "[FY_END_DATE]"` | `"2027-05-31"` |
-
-#### Example strings throughout the skill
-
-Search for these placeholders and replace with your values:
-
-| Placeholder | Your value |
-|---|---|
-| `[FY]` (example FY label) | `FY27` |
-| `[FY-1]` (previous FY label) | `FY26` |
-| `[Your Team Name]` | `Systems Architecture` |
-| `[Team Member A]` | `Igor` |
-| `[Team Member B + C]` | `Natalie + Danny` |
-| `[Team Lead]` (capacity table) | `Ben K.` |
-| `[Team Member]` (capacity table) | `Danny K.` |
-
-#### Section headers in examples
-
-| Generic | Justworks |
-|---|---|
-| `Q1 (Jan–Mar [YYYY])` | `Q1 (Jun–Aug 2026)` |
-| `Q2 (Apr–Jun [YYYY])` | `Q2 (Sep–Nov 2026)` |
-| `Q3 (Jul–Sep [YYYY])` | `Q3 (Dec 2026–Feb 2027)` |
-| `Q4 (Oct–Dec [YYYY])` | `Q4 (Mar–May 2027)` |
-| `Q2 Roadmap — [Your Team Name] (Apr–Jun [YYYY])` | `Q2 Roadmap — Systems Architecture (Sep–Nov 2026)` |
-| `### [Q1: Jan–Mar YYYY]` (doc section header example) | `### [Q1: Jun–Aug 2026]` |
-
-#### Horizon confirmation example
-
-| Generic | Justworks |
-|---|---|
-| `Q2 (Apr–Jun [YYYY]) / Q2–Q3 (Apr–Sep [YYYY])` | `Q2 (Sep–Nov 2026) / Q2–Q3 (Sep 2026–Feb 2027)` |
-
-#### Gotchas — fallback folder ID
-
-| Generic | Justworks |
-|---|---|
-| `'<STRATEGY_FOLDER_ID>' in parents` | `'12TUt9I7E1wD9PGYItgGiffLWPGZ8A9Ut' in parents` |
-
-#### Gotchas — leap year note
-
-| Generic | Justworks |
-|---|---|
-| "if your fiscal year's Q3 spans February, Q3 ends February 28 (or 29 in a leap year)..." | Append: "[FY] Q3 ends 2027-02-28 (not a leap year)." |
+**Example strings** — search for `[FY]`, `[FY-1]`, `[Your Team Name]`, `[Team Lead]`, `[Team Member A]`, and `[Team Member B + C]` and replace each with your values. These appear in example outputs shown to the model.
 
 ---
 
