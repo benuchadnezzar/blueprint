@@ -1,0 +1,8 @@
+{
+  "name": "blueprint",
+  "version": "0.1.0",
+  "description": "A Claude Code plugin with skills for Google Workspace, Asana, Slack, Granola, Confluence, and Lucid diagramming. Designed for use as a personal productivity layer on top of Claude Code.",
+  "author": {
+    "name": "Ben Kulakofsky"
+  }
+}
